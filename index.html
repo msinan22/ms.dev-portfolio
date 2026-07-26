@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MS.DEV | Sinan - Web Developer Portfolio</title>
+  <meta name="description"
+    content="Transforming ideas into fast, modern, and responsive websites that engage users, strengthen brands, and drive real results.">
+
+  <!-- Google Fonts: Oswald (Display headers) & Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Background Decorative Grid Overlay -->
+  <div class="bg-grid-overlay"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">MS.DEV</span>
+      </a>
+
+      <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle Menu">
+        <span class="menu-icon">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Drawer Overlay -->
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <div class="nav-drawer-content">
+      <div class="nav-drawer-header">
+        <div class="logo">
+          <span class="logo-dot"></span>
+          <span class="logo-text">MS LABS</span>
+        </div>
+        <button class="nav-close-btn" id="navCloseBtn" aria-label="Close Menu">&times;</button>
+      </div>
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#presence" class="nav-link">Online Presence</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+      </nav>
+      <div class="nav-drawer-footer">
+        <p>Ready to build something exceptional?</p>
+        <button class="btn btn-black open-contact-btn">Let's Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-container">
+
+        <!-- Left Column: Intro & Action Buttons -->
+        <div class="hero-col hero-left fade-up">
+          <p class="hero-greeting">Hey. I’m Sinan,</p>
+          <h1 class="hero-title">A WEB DEVELOPER</h1>
+          <p class="hero-description">
+            Transforming ideas into fast, modern, and responsive websites that engage users, strengthen brands, and
+            drive real results.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn btn-black open-contact-btn" id="heroConnectBtn">
+              LET'S CONNECT
+            </button>
+            <a href="#portfolio" class="btn btn-outline">
+              PORTFOLIO
+            </a>
+          </div>
+        </div>
+
+        <!-- Center Column: Developer Portrait Card -->
+        <div class="hero-col hero-center fade-up delay-1">
+          <div class="portrait-card">
+            <div class="portrait-arch">
+              <img src="assets/portrait2.png" alt="Sinan - Web Developer" class="portrait-img" loading="eager">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Stats List -->
+        <div class="hero-col hero-right fade-up delay-2">
+          <div class="stats-list">
+            <div class="stat-item">
+              <div class="stat-num">10+</div>
+              <div class="stat-label">Projects<br>Built</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Responsive<br>Websites</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">FAST</div>
+              <div class="stat-label">Performance<br>Focus</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">ALWAYS</div>
+              <div class="stat-label">Learning &<br>Improving</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES / 4-COLUMN FEATURE SECTION -->
+    <section class="services-section" id="services">
+      <div class="services-container fade-up">
+        <div class="service-card">
+          <h3 class="service-title">RESPONSIVE DEVELOPMENT</h3>
+          <p class="service-desc">
+            Developing modern, responsive websites that look exceptional and perform flawlessly across all devices.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3 class="service-title">CUSTOM WEB SOLUTIONS</h3>
+          <p class="service-desc">
+            Creating modern landing pages and business websites that build credibility and convert visitors into
+            customers.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3 class="service-title">INTERACTIVE USER INTERFACES</h3>
+          <p class="service-desc">
+            Crafting engaging, intuitive interfaces that create memorable digital experiences.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3 class="service-title">SPEED & QUALITY</h3>
+          <p class="service-desc">
+            Writing clean, maintainable code optimized for performance, accessibility, and long-term scalability.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREATING ONLINE PRESENCE SECTION -->
+    <section class="presence-section" id="presence">
+      <div class="presence-container">
+        <div class="presence-header fade-up">
+          <h2 class="section-display-title">CREATING ONLINE PRESENCE</h2>
+          <p class="presence-subtext">
+            Helping businesses, startups, and creators establish a strong online presence through modern frontend web
+            development.
+          </p>
+        </div>
+
+        <div class="tags-grid fade-up delay-1">
+          <div class="tag-pill">
+            <i class="fa-solid fa-rocket"></i>
+            </span>
+            Startups
+          </div>
+          <div class="tag-pill">
+            <i class="fa-solid fa-store"></i>
+            </span>
+            Small Businesses
+          </div>
+          <div class="tag-pill">
+            <span class="tag-icon">
+              <i class="fa-solid fa-palette"></i>
+            </span>
+            Creators
+          </div>
+          <div class="tag-pill">
+            <i class="fa-solid fa-laptop"></i>
+            </span>
+            Freelancers
+          </div>
+
+          <div class="tag-pill">
+            <span class="tag-icon">
+              <i class="fa-solid fa-user-graduate"></i>
+            </span>
+            Students
+          </div>
+          <div class="tag-pill">
+            <span class="tag-icon">
+              <i class="fa-solid fa-building"></i>
+            </span>
+            Agencies
+          </div>
+          <div class="tag-pill">
+            <span class="tag-icon">
+              <i class="fa-solid fa-store"></i>
+            </span>
+            Local Businesses
+          </div>
+          <div class="tag-pill">
+            <span class="tag-icon">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            Personal Brands
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / PHILOSOPHY SECTION -->
+    <section class="about-section" id="about">
+      <div class="about-container">
+
+        <div class="about-top-grid fade-up">
+          <h2 class="about-display-title">
+            CRAFTING MODERN WEBSITES & SEAMLESS EXPERIENCES
+          </h2>
+          <div class="about-lead">
+            Hey, I'm <strong class="highlight-name">SINAN</strong>, a web developer passionate about building fast,
+            responsive, and visually engaging websites that deliver seamless user experiences.
+          </div>
+        </div>
+
+        <div class="about-body-text fade-up delay-1">
+          <p>
+            I believe a great website is more than just good design—it's about delivering a seamless experience that
+            connects with users and achieves real business goals. I build modern, responsive, and performance-focused
+            websites that combine clean code with thoughtful design. Whether it's a portfolio, landing page, or business
+            website, I focus on creating digital experiences that are visually appealing, easy to use, and built to make
+            an impact. I'm always excited to collaborate and turn ideas into exceptional web experiences.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="portfolio-container">
+
+        <div class="portfolio-header fade-up">
+          <div class="portfolio-title-group">
+            <h2 class="section-display-title">PORTFOLIO</h2>
+            <p class="portfolio-subtitle">
+              Explore my latest web development projects and discover how I can transform your ideas into modern,
+              responsive websites.
+            </p>
+          </div>
+          <button class="btn btn-pill-action" id="showMoreProjectsBtn">
+            SHOW MORE <span class="arrow">&#9654;</span>
+          </button>
+        </div>
+
+        <div class="portfolio-grid fade-up delay-1">
+
+          <!-- Project Card 1: COFPI -->
+          <article class="project-card" data-project="cofpi">
+            <div class="project-media">
+              <img src="assets/cofpi2.png" alt="COFPI Coffee Shop Landing Page" loading="lazy">
+              <div class="project-overlay">
+                <span class="view-btn">View Details</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">COFPI</h3>
+              <p class="project-desc">Premium landing page for a coffee shop</p>
+            </div>
+          </article>
+
+          <!-- Project Card 2: CLOUDVAULT AI -->
+          <article class="project-card" data-project="cloudvault">
+            <div class="project-media">
+              <img src="assets/cloudvault2.png" alt="CLOUDVAULT AI SaaS Landing Page" loading="lazy">
+              <div class="project-overlay">
+                <span class="view-btn">View Details</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">CLOUDVAULT AI</h3>
+              <p class="project-desc">SaaS landing page</p>
+            </div>
+          </article>
+
+          <!-- Project Card 3: ARKON ARCHITECTS -->
+          <article class="project-card" data-project="arkon">
+            <div class="project-media">
+              <img src="assets/arkon_architects.png" alt="ARKON ARCHITECTS Architecture Studio Website" loading="lazy">
+              <div class="project-overlay">
+                <span class="view-btn">View Details</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">ARKON ARCHITECTS</h3>
+              <p class="project-desc">Architecture Studio Website</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-dot"></span>
+            <span class="logo-text">MS.DEV</span>
+          </div>
+          <p class="footer-tagline">Building fast, modern & responsive digital web experiences.</p>
+        </div>
+        <div class="footer-cta">
+          <button class="btn btn-black open-contact-btn">LET'S CONNECT</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MS.DEV / Sinan. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#hero">Back to top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal-backdrop" id="contactModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="closeContactModal">&times;</button>
+      <div class="modal-header">
+        <h2>LET'S CONNECT</h2>
+        <p>Have a project in mind or want to collaborate? Send a message or get in touch directly.</p>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="contactName">Name</label>
+          <input type="text" id="contactName" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="contactNo">Mobile Number</label>
+          <input type="tel" id="contactNo" placeholder="+91XXXXXXXXXX" required>
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email</label>
+          <input type="email" id="contactEmail" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" rows="4" placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-black btn-block">SEND MESSAGE</button>
+      </form>
+      <div class="modal-divider"><span>OR DIRECT EMAIL</span></div>
+      <div class="email-copy-box">
+        <span id="emailText">mhdsinanmv22@gmail.com</span>
+        <button class="copy-email-btn" id="copyEmailBtn">Copy Email</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT CASE STUDY MODAL -->
+  <div class="modal-backdrop" id="projectModal" aria-hidden="true">
+    <div class="modal-box modal-lg">
+      <button class="modal-close" id="closeProjectModal">&times;</button>
+      <div class="project-modal-content" id="projectModalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
