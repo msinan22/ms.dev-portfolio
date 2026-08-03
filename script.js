@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectModals();
   initCopyEmail();
   initSmoothScroll();
+  initPhoneSanitizer();
+  initGoogleForm();
 });
 
 /* ==========================================================================
@@ -42,6 +44,7 @@ function initScrollAnimations() {
    ========================================================================== */
 function initHeaderScroll() {
   const header = document.querySelector('.site-header');
+  if (!header) return;
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
@@ -60,6 +63,8 @@ function initNavDrawer() {
   const closeBtn = document.getElementById('navCloseBtn');
   const navDrawer = document.getElementById('navDrawer');
   const navLinks = document.querySelectorAll('.nav-link');
+
+  if (!navDrawer) return;
 
   function openDrawer() {
     navDrawer.classList.add('active');
@@ -86,13 +91,14 @@ function initNavDrawer() {
 }
 
 /* ==========================================================================
-   4. CONTACT MODAL & FORM
+   4. CONTACT MODAL OVERLAY
    ========================================================================== */
 function initContactModal() {
   const openBtns = document.querySelectorAll('.open-contact-btn');
   const closeBtn = document.getElementById('closeContactModal');
   const contactModal = document.getElementById('contactModal');
-  const contactForm = document.getElementById('contactForm');
+
+  if (!contactModal) return;
 
   function openModal() {
     contactModal.classList.add('active');
@@ -113,40 +119,25 @@ function initContactModal() {
     if (e.target === contactModal) closeModal();
   });
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
+  // Global helper function so Google Form response can close the modal
+  window.closeContactModal = closeModal;
+}
 
-      submitBtn.textContent = 'SENDING...';
-      submitBtn.disabled = true;
-
-      setTimeout(() => {
-        submitBtn.textContent = 'MESSAGE SENT ✓';
-        submitBtn.style.backgroundColor = '#2d6a4f';
-        contactForm.reset();
-
-        setTimeout(() => {
-          closeModal();
-          submitBtn.textContent = originalText;
-          submitBtn.style.backgroundColor = '';
-          submitBtn.disabled = false;
-        }, 1800);
-      }, 1000);
+/* ==========================================================================
+   5. PHONE NUMBER INPUT SANITIZER
+   ========================================================================== */
+function initPhoneSanitizer() {
+  const phoneInput = document.getElementById('contactNo') || document.getElementById('clientPhone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+      // Removes any character that isn't a digit (0-9) or '+'
+      e.target.value = e.target.value.replace(/[^0-9+]/g, '');
     });
   }
 }
 
-const phoneInput = document.getElementById('contactNo');
-
-phoneInput.addEventListener('input', (e) => {
-  // Removes any character that isn't a digit (0-9)
-  e.target.value = e.target.value.replace(/[^0-9+]/g, '');
-});
-
 /* ==========================================================================
-   5. PORTFOLIO PROJECT CASE STUDY MODALS
+   6. PORTFOLIO PROJECT CASE STUDY MODALS
    ========================================================================== */
 const projectData = {
   cofpi: {
@@ -160,7 +151,7 @@ const projectData = {
     title: 'CLOUDVAULT AI',
     tag: 'SaaS Platform Website',
     img: 'assets/cloudvault.png',
-    desc: 'CLOUDVAULT AI provides an intuitive interface for a enterprise cloud storage and generative AI service. Designed with vibrant glassmorphism accents, live analytics preview cards, and ultra-fast page load metrics.',
+    desc: 'CLOUDVAULT AI provides an intuitive interface for an enterprise cloud storage and generative AI service. Designed with vibrant glassmorphism accents, live analytics preview cards, and ultra-fast page load metrics.',
     tech: ['HTML5', 'CSS Grid & Flexbox', 'Vanilla JS', 'SVG Graphics', 'Accessibility']
   },
   arkon: {
@@ -178,6 +169,8 @@ function initProjectModals() {
   const closeBtn = document.getElementById('closeProjectModal');
   const modalContent = document.getElementById('projectModalContent');
   const showMoreBtn = document.getElementById('showMoreProjectsBtn');
+
+  if (!projectModal || !modalContent) return;
 
   function openProject(projectId) {
     const data = projectData[projectId];
@@ -208,7 +201,8 @@ function initProjectModals() {
     if (modalInquireBtn) {
       modalInquireBtn.addEventListener('click', () => {
         closeProject();
-        document.getElementById('contactModal').classList.add('active');
+        const contactModal = document.getElementById('contactModal');
+        if (contactModal) contactModal.classList.add('active');
       });
     }
   }
@@ -227,36 +221,19 @@ function initProjectModals() {
   });
 
   if (closeBtn) closeBtn.addEventListener('click', closeProject);
-  if (projectModal) {
-    projectModal.addEventListener('click', (e) => {
-      if (e.target === projectModal) closeProject();
-    });
-  }
+  projectModal.addEventListener('click', (e) => {
+    if (e.target === projectModal) closeProject();
+  });
 
   // Show More Button handler
   if (showMoreBtn) {
     showMoreBtn.addEventListener('click', () => {
       const grid = document.querySelector('.portfolio-grid');
-      // Append an extra demo card if not already added
-      if (!document.getElementById('extraProjectCard')) {
+      if (grid && !document.getElementById('extraProjectCard')) {
         const newCard = document.createElement('article');
         newCard.className = 'project-card fade-up visible';
         newCard.id = 'extraProjectCard';
         newCard.setAttribute('data-project', 'cofpi');
-        /*
-        newCard.innerHTML = `
-          <div class="project-media">
-            <img src="assets/cofpi.png" alt="Featured Portfolio Work" loading="lazy">
-            <div class="project-overlay">
-              <span class="view-btn">View Details</span>
-            </div>
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">METRO DIGITAL</h3>
-            <p class="project-desc">Modern Agency Portfolio & Creative Studio</p>
-          </div> 
-        `;
-        */
         grid.appendChild(newCard);
         newCard.addEventListener('click', () => openProject('cofpi'));
         showMoreBtn.innerHTML = 'ALL PROJECTS DISPLAYED ✓';
@@ -267,7 +244,7 @@ function initProjectModals() {
 }
 
 /* ==========================================================================
-   6. COPY EMAIL FEATURE
+   7. COPY EMAIL FEATURE
    ========================================================================== */
 function initCopyEmail() {
   const copyBtn = document.getElementById('copyEmailBtn');
@@ -291,7 +268,7 @@ function initCopyEmail() {
 }
 
 /* ==========================================================================
-   7. SMOOTH SCROLL FOR NAV LINKS
+   8. SMOOTH SCROLL FOR NAV LINKS
    ========================================================================== */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -305,6 +282,89 @@ function initSmoothScroll() {
           behavior: 'smooth',
           block: 'start'
         });
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   9. GOOGLE FORM SUBMISSION (SILENT BACKGROUND SUBMIT)
+   ========================================================================== */
+function initGoogleForm() {
+  const formElement = document.getElementById('contactForm') || document.getElementById('ContactForm') || document.getElementById('calicutBulkEnquiryForm');
+  const iframe = document.getElementById('hidden_iframe');
+  let isSubmitting = false;
+
+  if (!formElement) return;
+
+  formElement.addEventListener('submit', function(e) {
+    let formIsValid = true;
+    const requiredFields = formElement.querySelectorAll('[required]');
+
+    // Local validation check
+    requiredFields.forEach(input => {
+      input.parentElement.classList.remove('invalid-field');
+      if (!input.value.trim()) {
+        input.parentElement.classList.add('invalid-field');
+        formIsValid = false;
+      }
+    });
+
+    // If validation fails, stop submission
+    if (!formIsValid) {
+      e.preventDefault();
+      return;
+    }
+
+    // Flag that we are submitting so iframe listener triggers
+    isSubmitting = true;
+
+    // UI Feedback on button
+    const submitBtn = formElement.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.textContent = 'TRANSMITTING...';
+      submitBtn.disabled = true;
+    }
+
+    // DO NOT call e.preventDefault() here! 
+    // Letting it submit to hidden_iframe keeps the user on your site.
+  });
+
+  // Fires when Google Forms responds inside the hidden iframe
+  if (iframe) {
+    iframe.addEventListener('load', () => {
+      if (!isSubmitting) return; // Prevent triggering on initial page load
+
+      const submitBtn = formElement.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.textContent = 'SENT SUCCESSFULLY ✓';
+        submitBtn.style.backgroundColor = '#2d6a4f';
+      }
+
+      formElement.reset();
+      isSubmitting = false;
+
+      // Show your site's custom alert/modal
+      if (typeof showSuccessAlert === 'function') {
+        showSuccessAlert();
+      }
+
+      setTimeout(() => {
+        if (window.closeContactModal) window.closeContactModal();
+        if (submitBtn) {
+          submitBtn.textContent = 'TRANSMIT BULK REQUEST';
+          submitBtn.style.backgroundColor = '';
+          submitBtn.disabled = false;
+        }
+      }, 2000);
+    });
+  }
+
+  // Clear red box on typing
+  formElement.querySelectorAll('[required]').forEach(input => {
+    input.addEventListener('input', () => {
+      if (input.value.trim()) {
+        input.parentElement.classList.remove('invalid-field');
       }
     });
   });

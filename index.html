@@ -344,25 +344,27 @@
         <h2>LET'S CONNECT</h2>
         <p>Have a project in mind or want to collaborate? Send a message or get in touch directly.</p>
       </div>
-      <form class="contact-form" id="contactForm">
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){ handleFormSuccess(); }"></iframe>
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSeqb9L1gL1KCya91ReymfeTINF9xHAEZS1eqoHdZbL-VtASVw/formResponse" class="contact-form" id="ContactForm" method="POST" target="hidden_iframe" novalidate>
         <div class="form-group">
           <label for="contactName">Name</label>
-          <input type="text" id="contactName" placeholder="Your name" required>
+          <input type="text" id="contactName" name="entry.1972404462" placeholder="Your name" required>
         </div>
         <div class="form-group">
           <label for="contactNo">Mobile Number</label>
-          <input type="tel" id="contactNo" placeholder="+91XXXXXXXXXX" required>
+          <input type="tel" id="contactNo" name="entry.801107428" placeholder="+91XXXXXXXXXX" required>
         </div>
         <div class="form-group">
           <label for="contactEmail">Email</label>
-          <input type="email" id="contactEmail" placeholder="your@email.com" required>
+          <input type="email" id="contactEmail" name="entry.1386434698" placeholder="your@email.com" required>
         </div>
         <div class="form-group">
           <label for="contactMessage">Message</label>
-          <textarea id="contactMessage" rows="4" placeholder="Tell me about your project..."></textarea>
+          <textarea id="contactMessage" rows="4" name="entry.805554263" placeholder="Tell me about your project..."></textarea>
         </div>
         <button type="submit" class="btn btn-black btn-block">SEND MESSAGE</button>
       </form>
+      
       <div class="modal-divider"><span>OR DIRECT EMAIL</span></div>
       <div class="email-copy-box">
         <span id="emailText">mhdsinanmv22@gmail.com</span>
