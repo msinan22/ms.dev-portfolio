@@ -143,14 +143,14 @@ const projectData = {
   cofpi: {
     title: 'COFPI',
     tag: 'Coffee Shop Landing Page',
-    img: 'assets/cofpi.png',
+    img: 'assets/cofpi2.png',
     desc: 'COFPI is a high-converting, luxury landing page built for an artisanal coffee roastery. Engineered with dark aesthetic themes, responsive grid showcases, and smooth micro-interactions to drive customer orders.',
     tech: ['HTML5', 'Vanilla CSS3', 'JavaScript ES6', 'Responsive Grid', 'SEO & Performance']
   },
   cloudvault: {
     title: 'CLOUDVAULT AI',
     tag: 'SaaS Platform Website',
-    img: 'assets/cloudvault.png',
+    img: 'assets/cloudvault2.png',
     desc: 'CLOUDVAULT AI provides an intuitive interface for an enterprise cloud storage and generative AI service. Designed with vibrant glassmorphism accents, live analytics preview cards, and ultra-fast page load metrics.',
     tech: ['HTML5', 'CSS Grid & Flexbox', 'Vanilla JS', 'SVG Graphics', 'Accessibility']
   },
